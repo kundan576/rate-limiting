@@ -5,7 +5,7 @@ import ip from "ip";
 const MaxRequestPerMinute = 5;
 const Maxtime= 10*1000;
 
-let  ip_mapping ={};
+let  ip_mapping = {};
 
 
 
@@ -40,6 +40,10 @@ app.get("/", (req,res)=>{
     const myIp = ip.address();
     console.log(`Server is running on IP address: ${myIp}`);
 })
+
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 
 app.listen(3000,()=>{
     console.log("server is live");
